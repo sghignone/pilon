@@ -4,7 +4,7 @@ LABEL	maintainer="Stefano Ghignone, IPSP-CNR, Turin, Italy, stefano.ghignone[at]
 LABEL	name="PILON"
 LABEL	version="1.23 (released 2018-11-27)" 
 
-	#UPDATE BASE SYSTEMO
+	#UPDATE BASE SYSTEM
 RUN	apt update && apt -y upgrade \
 	&& apt install -y wget
 
