@@ -4,8 +4,6 @@ LABEL	maintainer="Stefano Ghignone, IPSP-CNR, Turin, Italy, stefano.ghignone[at]
 LABEL	name="PILON"
 LABEL	version="1.23 (released 2018-11-27)" 
 
-ENV	PATH=/usr/local/bin:$PATH
-
 RUN	apt update && apt -y upgrade \
 	&& apt install -y wget
 
@@ -17,6 +15,5 @@ ENV	TAG="1.23"
 ENV	URL="https://github.com/broadinstitute/pilon/releases/download/v${TAG}/pilon-${TAG}.jar"
 RUN	wget -c "$URL" -P /opt/	
 
-#RUN	echo '#!/bin/bash\njava -Xmx16G -jar /opt/pilon-${TAG}.jar' > /usr/local/bin/pilon && \
-#    	chmod +x /usr/local/bin/pilon
+
 
