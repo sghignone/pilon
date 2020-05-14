@@ -13,7 +13,7 @@ RUN	conda config --add channels conda-forge && \
 	conda config --add channels default
 	
 	#INSTALL SOFTWARE
-RUN	conda install pilon=1.23 samtools=1.9 bwa=0.7.17 && conda clean -a
+RUN	conda install pilon=1.23 && conda clean -a
 
 	#TWEAK PILON
 ENV     MINMEM="1g"
