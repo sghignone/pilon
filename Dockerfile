@@ -11,8 +11,13 @@ RUN	conda update -n base -c defaults conda
 RUN	conda config --add channels conda-forge && \
 	conda config --add channels bioconda && \
 	conda config --add channels default
-
+	
+	#INSTALL SOFTWARE
 RUN	conda install pilon=1.23 samtools=1.9 bwa=0.7.17 && conda clean -a
-RUN	sed -i "16s/Xms512m/Xms1g/" /opt/conda/share/pilon-1.23-2/pilon && sed -i "16s/Xmx1g/Xmx100g/" /opt/conda/share/pilon-1.23-2/pilon
+
+	#TWEAK PILON
+ENV     MINMEM="1g"
+ENV     MAXMEM="100g"
+RUN	sed -i "16s/Xms512m/Xms${MINMEM}/" /opt/conda/share/pilon-1.23-2/pilon && sed -i "16s/Xmx1g/Xmx${MAXMEM}/" /opt/conda/share/pilon-1.23-2/pilon
 
 WORKDIR	/scratch
